@@ -1,0 +1,31 @@
+<div class="column is-one-third">
+  <nav class="panel is-link">
+    <p class="panel-heading">
+      <%= @entry.meal_type %>
+    </p>
+    <div class="panel-block">
+      Calories: <%= @entry.calories %>
+    </div>
+    <div class="panel-block">
+      Proteins: <%= @entry.proteins %>
+    </div>
+    <div class="panel-block">
+      Carbs: <%= @entry.carbohydrates %>
+    </div>
+    <div class="panel-block">
+      Fats: <%= @entry.fats %>
+    </div>
+  </nav>
+
+  <div class="container is-pulled-left">
+    <%= link_to 'back', root_path, class: "is-family-monospace button is-dark is-outlined"%>
+  </div>
+  <div class="container is-pulled-right">
+    <%= button_to 'delete', entry_path(@entry), method: :delete, data: {
+        confirm: "Are you sure you want to remove #{@entry.meal_type}"
+      }, class: "is-family-monospace button is-danger is-outlined"%>
+  </div>
+  <div class="container mr-1 is-pulled-right">
+    <%= link_to 'edit', edit_entry_path(@entry), class: "is-family-monospace button is-link is-outlined"%>
+  </div>
+</div>

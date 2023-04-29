@@ -1,0 +1,56 @@
+<%= form_with(model: entry) do |form| %>
+  <% if entry.errors.any? %>
+    <div class="message is-danger is-light">
+      <div class="message-header">
+        <h2><%= pluralize(entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
+      </div>
+      <ul>
+        <% entry.errors.each do |error| %>
+          <li class = "m-1" ><%= error.full_message %>.</li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class = "field">
+    <%= form.label :meal_type, style: "display: block", class: "label" %>
+    <div class = "control">
+      <%= form.text_field :meal_type, class: "input" %>
+      </div>
+  </div>
+
+  <div class = "field">
+    <%= form.label :calories, style: "display: block", class: "label" %>
+    <div class = "control">
+      <%= form.number_field :calories, class: "input" %>
+      </div>
+  </div>
+
+  <div class = "field">
+    <%= form.label :proteins, style: "display: block", class: "label" %>
+    <div class = "control">
+      <%= form.number_field :proteins, class: "input" %>
+      </div>
+  </div>
+
+  <div class = "field">
+    <%= form.label :carbohydrates, style: "display: block", class: "label" %>
+    <div class = "control">
+      <%= form.number_field :carbohydrates, class: "input" %>
+      </div>
+  </div>
+
+  <div class = "field">
+    <%= form.label :fats, style: "display: block", class: "label" %>
+    <div class = "control">
+      <%= form.number_field :fats, class: "input" %>
+      </div>
+  </div>
+
+  <div class="container is-pulled-left">
+      <%= form.submit submit_action, class: "is-family-monospace button is-primary" %>
+  </div>
+  <div class="container is-pulled-right">
+    <%= link_to "Cancel", entries_path, class: "is-family-monospace button is-light" %>
+  </div>
+<% end %>

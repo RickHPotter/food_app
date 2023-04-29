@@ -1,0 +1,50 @@
+<% @entries.each_with_index do |entry, index| %>
+  <% if index % 3 == 0 %>
+    <div class="columns is-desktop is-centered">
+  <% end %>
+  <div class="column is-4">
+    <%= link_to entry do %>
+      <div class="card mb-3">
+        <nav class = "panel is-link">
+          <header class = "panel-heading">
+            <%= entry.meal_type %>
+          </header>
+
+          <a class = "panel-block">
+            <b> <%= entry.calories %></b> &nbsp;
+            calories
+          </a>
+          <a class = "panel-block">
+            <b> <%= entry.proteins %></b> &nbsp;
+            grams of proteins
+          </a>
+          <p class = "panel-block">
+            <b><%= entry.carbohydrates %></b> &nbsp;
+             grams of carbs
+          </p>
+          <a class = "panel-block">
+            <b><%= entry.fats %></b> &nbsp;
+            grams of fat
+          </a>
+          <a class = "panel-block">
+            <h1 class = "has-text-weight-light">
+              <%= time_ago_in_words(entry.created_at).capitalize %> ago.
+            </h1>
+          </a>
+
+          <div class = "panel">
+            <div class="level-right">
+
+            <%= button_to 'Delete', entry, method: :delete,
+              form: { data: { turbo_confirm: 'Are you sure?' } },
+              :class => 'button is-danger is-outlined m-1' %>
+            </div>
+          </div>
+        </nav>
+      </div>
+    <% end %>
+  </div>
+  <% if index % 3 == 2 || @entries.size == index + 1 %>
+    </div>
+  <% end %>
+<% end %>

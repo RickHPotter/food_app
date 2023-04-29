@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Food App</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <%= javascript_include_tag "application" %>
+    <%= javascript_importmap_tags %>
+    
+  </head>
+
+  <body>
+    <%= render "shared/header" %>
+    
+    <% if notice.present? %>
+      <div class="notification is-link is-light">
+        <%= notice %>
+      </div>
+    <% end %>
+
+    <% if alert.present? %>
+      <div class="notification is-danger is-light">
+        <%= alert %>
+      </div>
+    <% end %>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</html>

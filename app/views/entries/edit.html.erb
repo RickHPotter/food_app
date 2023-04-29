@@ -1,0 +1,9 @@
+<% content_for :subtitle do %>
+  <p class = "subtitle is-size-5 has-text-weight-bold">Editing 
+    <span class = "has-text-warning" ><%= @entry.meal_type %></span>
+  </p>
+<% end %>
+
+<div class="columns is-centered mt-1">
+  <%= render "form", entry: @entry, submit_action: 'Update' %>
+</div>

@@ -1,0 +1,15 @@
+<% content_for :title do %>
+  <p class = "title has-text-light" >
+    <%= @entry.meal_type %>
+  </p>
+<% end %>
+
+<% content_for :subtitle do %>
+  <p class = "subtitle is-size-5 has-text-weight-bold has-text-black" >
+    Food App
+  </p>
+<% end %>
+
+<div class="columns mt-2 is-centered">
+  <%= render "display", entry: @entry %>
+</div>

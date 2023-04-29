@@ -1,0 +1,11 @@
+<%= content_for :subtitle do %>
+  <p class="subtitle is-size-5 has-text-weight-bold has-text-black">
+    <%= Date.today.strftime("%e %b, %Y") %>
+  </p>
+<% end %>
+
+<%= render "entry" %>
+
+<div class="columns is-centered mb-6">
+  <%= link_to 'View All Entries', archives_index_path, class: 'button is-link is-outlined' %>
+</div>

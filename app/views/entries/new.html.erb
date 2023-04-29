@@ -1,0 +1,9 @@
+<% content_for :subtitle do %>
+  <p class = "subtitle is-size-5 has-text-weight-bold">Creating 
+    <span class = "has-text-success" >New Meal</span>
+  </p>
+<% end %>
+
+<div class="columns is-centered mt-1">
+  <%= render "form", entry: @entry, submit_action: 'Create' %>
+</div>

@@ -1,0 +1,67 @@
+<%= content_for :subtitle do %>
+  <p class="subtitle is-size-5 has-text-weight-bold has-text-black">
+    Archive
+  </p>
+<% end %>
+
+<div class="columns is-centered mt-2">
+  <div class="column is-half">
+
+    <% @archive.each do |day, entries| %>
+      <div class="mb-6">
+        <h3 class = "notification is-primary is-size-4 has-text-weight-bold mb-0 has-text-dark has-text-centered">
+          Entries for <%= day %>
+        </h3>
+
+        <nav class="level is-mobile message pb-3 pt-3 m-0 is-family-monospace">
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">Calories</p>
+              <p class="title"><%= entries.pluck(:calories).sum %></p>
+            </div>
+          </div>
+
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">Proteins</p>
+              <p class="title"><%= entries.pluck(:proteins).sum %>g<g/p>
+            </div>
+          </div>
+          
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">Carbohydrates</p>
+              <p class="title"><%= entries.pluck(:carbohydrates).sum %>g</p>
+            </div>
+          </div>
+
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">Fats</p>
+              <p class="title"><%= entries.pluck(:fats).sum %>g</p>
+            </div>
+          </div>
+        </nav>
+
+        <% entries.each do |entry| %>
+          <%= link_to entry_path(entry) do %>
+            <div class="card">
+              <div class="card-content">
+                <strong class = "card-title"><%= entry.meal_type %></strong><br>
+                <div class="card-subtitle">
+                  <%= entry.calories %> calories,
+                  <%= entry.proteins %>g protein,
+                  <%= entry.carbohydrates %>g carbs,
+                  <%= entry.fats %>g fats
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+
+      </div>
+    <% end %>
+
+  </div>
+
+</div>
